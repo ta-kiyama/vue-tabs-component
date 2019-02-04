@@ -19,6 +19,8 @@ class ExpiringStorage {
     }
 
     set(key, value, lifeTimeInMinutes) {
+        if(!lifeTimeInMinutes) return;
+
         const currentTime = new Date().getTime();
 
         const expires = new Date(currentTime + lifeTimeInMinutes * 60000);
