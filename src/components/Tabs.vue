@@ -108,7 +108,7 @@
                 }
 
                 if (this.lastActiveTabHash === selectedTab.hash) {
-                    this.$emit('clicked', { tab: selectedTab });
+                    this.$emit('clicked', { tab: selectedTab, event });
                     return;
                 }
 
@@ -116,7 +116,7 @@
                     tab.isActive = (tab.hash === selectedTab.hash);
                 });
 
-                this.$emit('changed', { tab: selectedTab });
+                this.$emit('changed', { tab: selectedTab, event });
 
                 this.activeTabHash = selectedTab.hash;
                 this.activeTabIndex = this.getTabIndex(selectedTabHash);
